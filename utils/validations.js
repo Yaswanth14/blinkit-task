@@ -5,7 +5,6 @@ const createUser = zod.object({
     password: zod.string().min(6)
 })
 
-
 module.exports = {
     createUser
 }
