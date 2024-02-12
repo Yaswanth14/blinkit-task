@@ -28,7 +28,7 @@ const DataSchema = new mongoose.Schema({
         data: Buffer,
         contentType: String
     }
-})
+}, {timestamps: true})
 
 const User = mongoose.model('User', UserSchema);
 const Data = mongoose.model('Data', DataSchema);

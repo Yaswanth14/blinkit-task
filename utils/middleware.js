@@ -2,12 +2,12 @@ const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv');
 dotenv.config();
 
-function requireSignIn(req, res, next) {
+module.exports.requireSignIn = (req, res, next) => {
     const jwtToken = req.headers.authorization;
     try {
         const decodedValue = jwt.verify(jwtToken, process.env.JWT_SECRET);
 
-        if (decodedValue.username) {    
+        if (decodedValue.email) {    
             req.email = decodedValue.email;
             next();
         } else {
@@ -23,5 +23,3 @@ function requireSignIn(req, res, next) {
         })
     }
 }
-
-module.exports = requireSignIn;
