@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const {requireSignIn} = require('./utils/middleware');
 
 dotenv.config();
 app.use(express.json());
@@ -88,6 +89,10 @@ app.post('/signin', async (req, res) => {
     }  
 });
 
+
+app.post('/create-data', requireSignIn, (req, res) => {
+
+});
 
 
 const PORT = process.env.PORT || 8080;

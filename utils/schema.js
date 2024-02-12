@@ -19,9 +19,22 @@ const UserSchema = new mongoose.Schema({
     password: String
 });
 
+const DataSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    photo: {
+        data: Buffer,
+        contentType: String
+    }
+})
+
 const User = mongoose.model('User', UserSchema);
+const Data = mongoose.model('Data', DataSchema);
 
 module.exports = {
-    User
+    User,
+    Data
 }
 
