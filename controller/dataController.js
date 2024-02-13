@@ -15,7 +15,8 @@ module.exports.createData = async (req, res) => {
     }
     await data.save();
     res.status(201).send({
-        message: "Data created successfully"
+        message: "Data created successfully",
+        data: data
     });
     
  } catch (error) {
